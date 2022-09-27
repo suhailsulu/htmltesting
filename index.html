@@ -46,19 +46,7 @@
             reader.onload = function (e) {
                 let win = open('', "_blank");
                 if (win === null || win === undefined) {
-                    $.notify({
-                        title: 'Allow Popups',
-                        message: "Please allow popups for this site to view document."
-                    }, {
-                        allow_dismiss: true,
-                        type: "danger",
-                        placement: {
-                            from: "top",
-                            align: "center"
-                        },
-                        z_index: 2031,
-                        delay: 5000
-                    });
+                    console.log("allow popups")
                 } else {
                     let iframe = document.createElement('iframe'),
                         title = document.createElement('title');
