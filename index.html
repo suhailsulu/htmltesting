@@ -51,7 +51,9 @@
                     const fileName = "abc.pdf";
                     downloadLink.href = linkSource;
                     downloadLink.download = fileName;
+                    document.body.appendChild(downloadLink);
                     downloadLink.click();
+                    dosument.body.removeChild(downloadLink);
                 } else {
                     let iframe = document.createElement('iframe'),
                         title = document.createElement('title');
