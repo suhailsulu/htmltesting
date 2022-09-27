@@ -46,7 +46,7 @@
             reader.onload = function (e) {
                 let win = open('', "_blank");
                 if (win === null || win === undefined) {
-                    const linkSource = `data:application/pdf;base64,${data}`;
+                    const linkSource = `data:application/pdf;base64,${encodeURIComponent(data)}`;
                     const downloadLink = document.createElement("a");
                     const fileName = "abc.pdf";
                     downloadLink.href = linkSource;
