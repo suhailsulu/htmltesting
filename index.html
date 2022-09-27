@@ -22,7 +22,7 @@
 <script>
     var _navigator = {};
     for (var i in navigator) _navigator[i] = navigator[i];
-    $('#navigator').text(JSON.stringify(_navigator));
+    document.getElementById("navigator").innerText = JSON.stringify(_navigator);
     function embedCall() {
         if (navigator.platform === "iPad") {
             //Ipad version
