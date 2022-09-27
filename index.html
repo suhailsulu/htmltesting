@@ -89,7 +89,7 @@
 
     }
     function objectCall() {
-        const linkSource = `data:application/pdf;base64,${data}`;
+        const linkSource = `data:application/pdf;base64,${encodeURIComponent(data)}`;
         const downloadLink = document.createElement("a");
         const fileName = "abc.pdf";
         downloadLink.href = linkSource;
