@@ -59,6 +59,7 @@
                     win.document.head.appendChild(title);
                     win.document.body.appendChild(iframe);
                     win.document.body.style.margin = 0;
+                    win.document.body.style.overflow = "scroll";
                 }
             };
             reader.readAsDataURL(out);
@@ -66,7 +67,7 @@
             let content = `data:application/pdf;base64, ${encodeURIComponent(data)}`;
             let pdfSrc = content;
 
-            let html = `<html><title>test</title><object data="${pdfSrc}" type="application/pdf" width="100%" height="100%">
+            let html = `<html><title>test</title><object data="${pdfSrc}" type="application/pdf" width="100%" height="100%" style="overflow:scroll">
                         <iframe width="100%" height="100%" src="${pdfSrc}" style="overflow:scroll">
                         </iframe>
                     </object></html>`;
