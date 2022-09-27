@@ -25,15 +25,15 @@
     for (var i in navigator) _navigator[i] = navigator[i];
     document.getElementById("navigator").innerText = JSON.stringify(_navigator);
     function base64ToArrayBuffer(base64) {
-    var binaryString = window.atob(base64);
-    var binaryLen = binaryString.length;
-    var bytes = new Uint8Array(binaryLen);
-    for (var i = 0; i < binaryLen; i++) {
-        var ascii = binaryString.charCodeAt(i);
-        bytes[i] = ascii;
+        var binaryString = window.atob(base64);
+        var binaryLen = binaryString.length;
+        var bytes = new Uint8Array(binaryLen);
+        for (var i = 0; i < binaryLen; i++) {
+            var ascii = binaryString.charCodeAt(i);
+            bytes[i] = ascii;
+        }
+        return bytes;
     }
-    return bytes;
-}
     function embedCall() {
         if (navigator.maxTouchPoints > 1 && navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
             //Ipad version
@@ -46,7 +46,12 @@
             reader.onload = function (e) {
                 let win = open('', "_blank");
                 if (win === null || win === undefined) {
-                    console.log("allow popups")
+                    const linkSource = `data:application/pdf;base64,${data}`;
+                    const downloadLink = document.createElement("a");
+                    const fileName = "abc.pdf";
+                    downloadLink.href = linkSource;
+                    downloadLink.download = fileName;
+                    downloadLink.click();
                 } else {
                     let iframe = document.createElement('iframe'),
                         title = document.createElement('title');
@@ -82,6 +87,12 @@
 
     }
     function objectCall() {
+        const linkSource = `data:application/pdf;base64,${data}`;
+        const downloadLink = document.createElement("a");
+        const fileName = "abc.pdf";
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
     }
 </script>
 
