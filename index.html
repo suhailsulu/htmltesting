@@ -24,7 +24,7 @@
     for (var i in navigator) _navigator[i] = navigator[i];
     document.getElementById("navigator").innerText = JSON.stringify(_navigator);
     function embedCall() {
-        if (navigator.platform === "iPad") {
+        if (navigator.maxTouchPoints > 1 && navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
             //Ipad version
             console.log("ipadddd");
             let bytes = base64ToArrayBuffer(data);
