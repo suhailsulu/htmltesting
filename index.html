@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-
+    <div id="navigator"></div>
     <div class="">
         <button id="embed" onclick="embedCall()">pdf as embed</button>
         <button id="object" onclick="objectCall()">pdf as object</button>
@@ -20,6 +20,9 @@
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
 <script src="invoicebase64.js" type="text/javascript"></script>
 <script>
+    var _navigator = {};
+    for (var i in navigator) _navigator[i] = navigator[i];
+    $('#navigator').text(JSON.stringify(_navigator));
     function embedCall() {
         if (navigator.platform === "iPad") {
             //Ipad version
@@ -54,7 +57,7 @@
                     iframe.width = '100%';
                     iframe.height = '100%';
                     iframe.style.overflow = "scroll";
-                    iframe.style.overflowY="scroll";
+                    iframe.style.overflowY = "scroll";
                     iframe.style.border = 'none';
 
                     win.document.head.appendChild(title);
