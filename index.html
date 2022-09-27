@@ -53,6 +53,7 @@
                     iframe.width = '100%';
                     iframe.height = '100%';
                     iframe.style.overflow = "scroll";
+                    iframe.style.overflowY="scroll";
                     iframe.style.border = 'none';
 
                     win.document.head.appendChild(title);
@@ -66,7 +67,7 @@
             let pdfSrc = content;
 
             let html = `<html><title>test</title><object data="${pdfSrc}" type="application/pdf" width="100%" height="100%">
-                        <iframe width="100%" height="100%" src="${pdfSrc}">
+                        <iframe width="100%" height="100%" src="${pdfSrc}" style="overflow:scroll">
                         </iframe>
                     </object></html>`;
 
